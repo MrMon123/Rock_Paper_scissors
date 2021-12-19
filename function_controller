@@ -1,0 +1,67 @@
+import random
+def round_game():
+    # This is where the variables are reset after each round
+    rock = False
+    paper = False
+    scissors = False
+    ai_rock = False
+    ai_paper = False
+    ai_scissors = False
+
+    # Takes the choice of the user and compares it to the random input by the program
+    choice = input("Do you play rock, paper, or scissors? ")
+    if choice == "rock":
+        rock = True
+    elif choice == "paper":
+        paper = True
+    else:
+        scissors = True
+
+    # Random choice
+    AI = random.randint(1, 3)
+    if AI == 1:
+        ai_rock = True
+    elif AI == 2:
+        ai_paper = True
+    else:
+        ai_scissors = True
+    print("---------------------------------------------")
+
+    # Checks to see who won
+    print("Round results")
+
+    # Draws
+    if rock and ai_rock:
+        print("The round is a draw! You both picked rock!")
+        return 0
+    elif paper and ai_paper:
+        print("The round is a draw! You both picked paper!")
+        return 0
+    elif scissors and ai_scissors:
+        print("This round is a draw! You both picked paper!")
+        return 0
+
+    #Rock
+    elif rock and ai_paper:
+        print("Sorry but the ai one this round! You choose rock and the AI picked paper :(")
+        return -1
+    elif rock and ai_scissors:
+        print("You won this round! You picked rock and the AI picked scissors :)")
+        return 1
+
+    # Paper
+    elif paper and ai_rock:
+        print("You won this round! You picked rock and the AI choose scissors :)")
+        return 1
+    elif paper and ai_scissors:
+        print("Sorry but you lost this round! You picked paper and the AI choose scissors")
+        return -1
+
+    # Scissors
+    elif scissors and ai_rock:
+        print("Sorry but you lost this round! You picked scissors and the AI picked rock")
+        return -1
+
+    elif scissors and ai_paper:
+        print("Congrats! You won this round, you picked scissors and the AI picked paper! :)")
+        return 1
