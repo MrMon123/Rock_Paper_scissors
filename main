@@ -1,0 +1,19 @@
+import function_controller
+score_player = 0
+score_ai = 0
+print("Welcome to RPS!")
+type = input("Would you like to play best to 3 wins or just one round? ") == "3 rounds"
+print("---------------------------------------------------")
+
+if type:
+    while score_player < 3 and score_ai < 3:
+        num = game_controller.round_game()
+        if num == 1:
+            score_player += 1
+        elif num == -1:
+            score_ai += 1
+
+if score_player == 3:
+    print("You beat the AI congrats!")
+elif score_ai == 3:
+    print("Sorry but you lost all three rounds it was a close game though!")
